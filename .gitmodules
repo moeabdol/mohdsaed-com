@@ -1,0 +1,3 @@
+[submodule "themes/mohdsaed-dark"]
+	path = themes/mohdsaed-dark
+	url = git@github.com:moeabdol/mohdsaed-dark.git

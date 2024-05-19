@@ -1,0 +1,27 @@
+{{ $cover := .Page.Resources.GetMatch (.Page.Params.cover) }}
+{{ $alt := .Page.Params.cover_alt }}
+{{ $caption := .Page.Params.cover_caption }}
+{{ $credit := .Page.Params.cover_credit }}
+{{ $year := .Page.Params.cover_credit_year }}
+{{ $small := $cover.Resize "1024x" }}
+
+<figure class="cover-image">
+	<a href="{{ $cover.RelPermalink }}">
+		{{ with $small }}
+			<img
+		 		width="{{ .Width }}"
+		 		height="{{ .Height }}"
+				src="{{ .RelPermalink }}"
+				alt="{{ $alt }}"
+			>
+		{{ end }}
+	</a>
+	<figcaption>
+		<div class="caption">
+			{{ $caption }}
+		</div>
+		<div class="credit">
+			{{ $credit }}
+		</div>
+	</figcaption>
+</figure>

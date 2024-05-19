@@ -1,0 +1,17 @@
+{{ define "main" }}
+	<main class="post">
+		<h1 class="title">{{ .Title }}</h1>
+		{{ if .Page.Params.subtitle }}
+			<h2 class="subtitle">{{ .Page.Params.subtitle }}</h2>
+		{{ end }}
+
+		{{- partial "post-meta.html" . -}}
+
+		<section class="content">
+			{{- partial "post-cover.html" . -}}
+			{{- partial "post-toc.html" . -}}
+
+			{{ .Content }}
+		</section>
+	</main>
+{{ end }}

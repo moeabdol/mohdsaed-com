@@ -1,0 +1,119 @@
+main.posts-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	margin: 0 auto;
+	width: 80%;
+	height: 100%;
+	background-color: $dark-grey;
+
+	h1.title {
+		font-size: 2.5rem;
+		font-weight: 600;
+		font-style: bold;
+		margin-top: 10px;
+	}
+
+	h2.subtitle {
+		font-size: 2.0rem;
+		font-weight: 300;
+		font-style: normal;
+	}
+
+	section.content {
+		font-size: 1.1rem;
+		margin-top: 15px;
+
+		.posts {
+			.post-card {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: flex-start;
+				color: $grey;
+				background-color: $light-black;
+				border: 2px solid $grey;
+				padding: 15px;
+				margin: 0 0 15px 0;
+
+				.title-row {
+					display: flex;
+					flex-direction: row;
+					justify-content: space-between;
+					align-items: center;
+					flex-wrap: wrap;
+					width: 100%;
+
+					a {
+						.title {
+							color: $grey;
+							font-family: 'Teko';
+							font-size: 2.0rem;
+							text-decoration: underline;
+							line-height: 1;
+						}
+					}
+
+					.date {
+						font-size: 1rem;
+					}
+				}
+
+				.taxonomy {
+					display: flex;
+					flex-direction: row;
+					justify-content: flex-start;
+					align-items: flex-start;
+					flex-wrap: wrap;
+					width: 100%;
+					margin-bottom: 10px;
+
+					.category {
+						font-size: 0.7rem;
+						font-weight: 500;
+						color: $white;
+						background-color: $blue;
+						border: 1px solid $white;
+						padding: 3px 5px;
+						margin: 5px 5px 0 0;
+						height: 15px;
+					}
+
+					.tag {
+						font-size: 0.7rem;
+						font-weight: 500;
+						color: $white;
+						background-color: $green;
+						border: 1px solid $white;
+						padding: 3px 5px;
+						margin: 5px 5px 0 0;
+						height: 15px;
+					}
+				}
+
+				.summary {
+					font-size: 1rem;
+					line-height: 1.5;
+
+					.fade {
+						margin-bottom: 10px;
+						text-align: justify;
+						-webkit-mask-image: linear-gradient(180deg, #000 0%, transparent);
+					}
+
+					a {
+						color: $grey;
+						font-size: 1rem;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 760px) {
+	a.image {
+		display: none !important;
+	}
+}
