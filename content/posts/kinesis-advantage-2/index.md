@@ -11,7 +11,6 @@ cover_caption: Kinesis Advantage 2
 cover_credit: © Mohammed Saed
 categories:
 - Computers
-- Programming
 tags:
 - Keyboard
 - Ergonomics

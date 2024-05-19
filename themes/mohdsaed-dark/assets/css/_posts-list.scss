@@ -4,7 +4,7 @@ main.posts-list {
 	justify-content: flex-start;
 	align-items: flex-start;
 	margin: 0 auto;
-	width: 80%;
+	width: 75%;
 	height: 100%;
 	background-color: $dark-grey;
 
@@ -113,6 +113,10 @@ main.posts-list {
 }
 
 @media only screen and (max-width: 760px) {
+	main.posts-list {
+		width: 80%;
+	}
+
 	a.image {
 		display: none !important;
 	}

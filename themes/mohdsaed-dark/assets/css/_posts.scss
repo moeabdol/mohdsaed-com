@@ -4,7 +4,7 @@ main.post {
 	justify-content: flex-start;
 	align-items: flex-start;
 	margin: 0 auto;
-	width: 80%;
+	width: 75%;
 	height: 100%;
 	background-color: $dark-grey;
 
@@ -201,6 +201,10 @@ main.post {
 }
 
 @media only screen and (max-width: 750px) {
+	main.post {
+		width: 80%;
+	}
+
 	figure.post-image {
 		float: none !important;
 		margin: 20px 0 35px 0 !important;

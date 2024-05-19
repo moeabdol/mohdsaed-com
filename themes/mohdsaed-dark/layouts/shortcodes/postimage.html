@@ -1,5 +1,5 @@
 {{ $image := $.Page.Resources.GetMatch (.Get "src") }}
-{{ $smallImage := $image.Resize "300x" }}
+{{ $small := $image.Resize "300x" }}
 {{ $caption := .Get "caption" }}
 {{ $credit := print "© " .Site.Params.authorName }}
 {{ if .Get "credit" }}
@@ -11,14 +11,16 @@
 {{ end }}
 
 <figure class="post-image {{ $float }}">
-	{{ with $smallImage }}
-		<img
-			width="{{ .Width }}"
-			height="{{ .Height }}"
-			src="{{ .RelPermalink }}"
-			alt="{{ $.Get 1 }}"
-		>
-	{{ end }}
+	<a href="{{ $image.RelPermalink }}">
+		{{ with $small }}
+			<img
+				width="{{ .Width }}"
+				height="{{ .Height }}"
+				src="{{ .RelPermalink }}"
+				alt="{{ $.Get 1 }}"
+			>
+		{{ end }}
+	</a>
 	<figcaption>
 		<div class="caption">
 			{{ $caption }}
