@@ -3,11 +3,11 @@
 
 name = "Mohdsaed Dark"
 license = "MIT"
-licenselink = "https://github.com/moeabdol/mohdsaed-dark/blob/main/LICENSE"
+# licenselink = "https://github.com/moeabdol/mohdsaed-dark/blob/main/LICENSE"
 description = "Hugo dark theme"
-homepage = "https://mohdsaed.me"
+homepage = "https://mohdsaed.com"
 tags = ["hugo", "theme", "dark"]
 
 [author]
   name = "Mohammed Saed"
-  homepage = "https://mohdsaed.me"
+  homepage = "https://mohdsaed.com"
