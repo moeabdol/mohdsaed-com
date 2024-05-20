@@ -7,7 +7,7 @@ description: The Kinesis Advantage 2 is the apex of mechanical ergonomic keyboar
 summary: The Kinesis Advantage 2 is widely celebrated keyboard among hardcore programmers. It is considered the grandfather of split keyboards, and is loved by many writers and programmers from all around the world. If you have wrist or arm pains from countless hours of typing, then look no further! This mechanical keyboard is built with ergonomics and speed in mind. No more finger twisting key combinations, or over-arching pinkie strokes. The Kinesis will awaken your long forgotten thumbs from their slumber, and help you find new, effective, and more natural combinations to achieve flawless, painless typing.
 cover: "images/kinesis-1.JPG"
 cover_alt: Kinesis Advantage 2
-cover_caption: Kinesis Advantage 2
+cover_caption: Kinesis Advantage 2 LF
 cover_credit: © Mohammed Saed
 categories:
 - Computers
@@ -53,7 +53,20 @@ key-wells. I remember thinking to myself, this must be custom made for aesthetic
 purposes, but then I examined the layout and it had both the traditional Qwerty
 and Dvorak layouts printed on its key caps. I didn't understand the reasoning
 behind the design, and thought if I got used to that I might end up forgetting
-how to type on a regular keyboard. Little did I know that traditional keyboards
-were designed after the original typewriters of the 1800s. And that original
-layout design - although great at the time - remained almost unchanged until
-now!
+how to type on a regular, traditional keyboard. I kept making up reasons in my
+mind to discourage any kind constructive critique or admiration, but little did
+I know then that traditional keyboards - like the one on my MacBook - were
+designed after the original typewriters of the 1800s, and that original layout
+design - although great at the time - remained almost unchanged until now!
+
+## Problems of Old
+---
+{{< postimage src="images/hansen_writing_ball.jpg" caption="Hansen Writing Ball" credit=" " float="right" >}}
+
+The typewriter designers of the 1800s had little consideration to ergonomics and
+usability. They designed their typewriters to appeal to the niche 1% of the rich
+class who can afford to buy an exotic machine just to type love letters to their
+mistresses of the time. These typewriter machines were all mechanical which
+forced a certain creative design that was dependant on the internal physical
+wiring. Some of these machines were exotic collectables; such as, the Hansen
+Writing Ball. Others were more practical; such as,
