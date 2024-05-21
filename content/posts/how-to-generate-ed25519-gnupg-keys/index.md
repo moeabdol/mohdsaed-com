@@ -1,0 +1,108 @@
+---
+title: How to Generate ED25519 GnuPG Keys
+<!-- subtitle: How to Generate ED25519 GnuPG Keys -->
+date: 2022-05-21T11:39:33+03:00
+draft: false
+description: This is the description of the How to Generate Ed25519 GnuPG Keys post
+summary: How to Generate ED25519 GnuPG Keys
+cover: "images/cover.jpg"
+cover_alt: How to Generate ED25519 GnuPG Keys
+cover_caption: GNU Privacy Guard Logo
+cover_credit:
+categories:
+- Linux
+- Security
+tags:
+- Encryption
+- GnuPG
+- Tutorial
+---
+
+> "Arguing that you don't care about the right to privacy because you have
+> nothing to hide is no different from saying you don't care about free speech
+> because you have nothing to say." – Edward Snowden
+
+## Introduction
+---
+Almost everyday we hear about data breaches, enterprise and government hacks,
+NSA backdoors in major proprietary operating systems, malware, spyware and
+ransomware. Its also common nowadays to know someone that had his email hijacked
+, or his intimate family vacation photos exposed to the wide public. If you're
+not one of those people, you are extremely lucky, and if you are, you should
+seriously ask yourself why?! Either way you must reconsider your privacy and
+security choices, and learn a little bit of encryption basics and terminology
+that will keep you safe and anonymous in todays Internet wild wild west.
+
+Creating and maintaining your own encryption keys is a must-know skill for
+anyone who's serious about their security and privacy. If you have sensitive
+files on your harddrive, or surf the Internet on a daily basis then its a no
+brainer. You don't have to know the intricate math details of how RSA or
+Elliptical Curve algorithms work, but at least you should be familiar with how
+good and effective the are against potential attackers.
+
+## GNU Privacy Guard
+---
+> "GnuPG is a complete and free implementation of the OpenPGP standard as
+> defined by RFC4880 (also known as PGP). GnuPG allows you to encrypt and sign
+> your data and communications; it features a versatile key management system,
+> along with access modules for all kinds of public key directories. GnuPG, also
+> known as GPG, is a command line tool with features for easy integration with
+> other applications. A wealth of frontend applications and libraries are
+> available. GnuPG also provides support for S/MIME and Secure Shell (ssh)." --
+> {{< targetblank href="https://www.gnupg.org/" title="GnuPG Homepage" >}}
+
+GnuPG is an excellent commandline program that allows you to manage your keys
+and subkeys. The keys you generate with GnuPG can have different capabilities
+(**C**eritify, **S**ign, **A**uthenticate, **E**ncrypt). Keys can have multiple
+capabilities; however, the best practice is to create one key for each
+capability. Each key and/or subkey is a pair of public and private certificates.
+For example, an **Encrypt** capable key has a public and private certificates,
+together they constitute the encryption key.
+
+* The **Certify** key is usually the master key. It can create and certify other
+    subkeys. The sole purpose of the certify key is to create other subkeys. You
+    **DO NOT** use it to sign, authenticate or encrypt files and/or communications.
+    If this key gets compromised, your entire keychain gets compromised. This
+    key is usually long-lived, some where between 3 to 7 years.
+
+* The **Sign** key is a subkey concerned only with signing files and messages.
+    Just like your bank signature, a digital signature is a guarantee that the
+    sender of the message is who he claims to be. You use the sign key to sign
+    communications and files prior to sending them to recipients in order for
+    them to verify that it was indeed you who sent the message and/or
+    own the file. This is a 2 way process where senders and receivers have each
+    others public sign keys and use them accordingly in each communication to
+    make sure both parties are indeed the intended ones. This subkey is usually
+    short-lived, ideally for 1 year.
+
+* The **Authenticate** key is a subkey to authenticate against well-known
+    protocols; such as, SSH, Git, TLS, etc. For example, when you share your
+    authenticate subkey public certificate with GitHub you will not need to
+    authenticate with username and password every time you push or pull code.
+    This key is usually short-lived, ideally for 1 year.
+
+* The **Encrypt** key is a subkey to encrypt/decrypt files and communications.
+    Encryption is the process of changing a file's original low-level
+    representation of 0s and 1s into a different representation then sending it
+    to the recipient. This way if an encrypted file or communication is hijacked
+    by unwanted parties, they will never be able to read its content unless they
+    have the required decryption private key. This key is usually short-lived,
+    ideally for 1 year.
+
+When sending/receiving files and communications with different recipients we
+only share with them our public keys and they share with us their public keys.
+This way if I want to send an encrypted file to Ahmed, I first have to ask Ahmed
+for their public key which I will use to encrypt the message. Then when the
+message reaches Ahmed he can then use his private key to decrypt and read the
+contents of that message. This is called **Asymmetric Cryptography** or
+**Public-Key Cryptography**.
+
+## Generate a Master Key
+---
+Run the `gpg` command with the following arguments. Choose option 11 to create
+an ED25519 key to set your own capabilities for each key.
+
+```bash
+$ gpg --full-gen-key --expert
+```
+![image1](images/2022-05-21_01-25.png)

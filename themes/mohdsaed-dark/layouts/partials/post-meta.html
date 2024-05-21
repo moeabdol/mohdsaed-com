@@ -1,18 +1,18 @@
 <div class="taxonomy">
 	{{ range $category := .Params.Categories }}
-		<span class="category">{{ $category }}</span>
+		<a class="category" href="/categories/{{ lower $category }}">
+			{{ $category }}
+		</a>
 	{{ end }}
 
 	{{ range $tag := .Params.Tags }}
-		<span class="tag">{{ $tag }}</span>
+		<a class="tag" href="/tags/{{ lower $tag }}">
+			{{ $tag }}
+		</a>
 	{{ end }}
 </div>
 
 <div class="post-meta">
-	<div class="author-name">
-		<span>Author:</span>
-		<span>{{ .Site.Params.authorName }}</span>
-	</div>
 	<div class="publish-date">
 		<span>Published:</span>
 		<span>{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
