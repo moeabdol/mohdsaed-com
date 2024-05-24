@@ -15,6 +15,8 @@ tags:
 - Encryption
 - GnuPG
 - Tutorial
+params:
+    math: true
 ---
 
 ## Introduction
@@ -50,13 +52,19 @@ good and effective the are against potential attackers.
 > available. GnuPG also provides support for S/MIME and Secure Shell (ssh)." --
 > {{< targetblank href="https://www.gnupg.org/" title="GnuPG Homepage" >}}
 
-GnuPG is an excellent commandline program that allows you to manage your keys
-and subkeys. The keys you generate with GnuPG can have different capabilities
-(**C**eritify, **S**ign, **A**uthenticate, **E**ncrypt). Keys can have multiple
-capabilities; however, the best practice is to create one key for each
-capability. Each key and/or subkey is a pair of public and private certificates.
-For example, an **Encrypt** capable key has a public and private certificates,
-together they constitute the encryption key.
+GnuPG is an excellent command line program that allows you to manage your
+encryption keys. It is a comprehensive tool that enable you to create all sorts
+of encryption keys using different military-grade algorithms. The keys you
+generate with GnuPG can have different capabilities (**C**eritify, **S**ign,
+**A**uthenticate, **E**ncrypt). Keys can have multiple capabilities; however,
+the best practice is to create one key for each capability. Each key and/or
+subkey is a pair of public and private certificates. For example, an **Encrypt**
+capable key has a public and private certificates, together they constitute the
+encryption key.
+
+## Key Capabilities
+---
+Each capability defines what a key can do.
 
 * The **Certify** key is usually the master key. It can create and certify other
     subkeys. The sole purpose of the certify key is to create other subkeys. You
@@ -95,6 +103,19 @@ for their public key which I will use to encrypt the message. Then when the
 message reaches Ahmed he can then use his private key to decrypt and read the
 contents of that message. This is called **Asymmetric Cryptography** or
 **Public-Key Cryptography**.
+
+## What is ED25519?
+---
+ED25519 is a public-key cryptographic algorithm used for digital signature
+generation and verification. It is based on the elliptic curve cryptography and
+is considered more secure than other commonly used algorithms; such as, RSA and
+DSA. An ED25519 key pair consists of private key and a corresponding public key.
+The private key is used to generate digital signatures, while the public key is
+used to verify the signatures.
+
+The ED25519 algorithm is based on the elliptic curve defined over the prime
+field \(2^{255}-19\). The private key is 256-bit integer, while the public key
+is a 32-byte sequence.
 
 ## Generate a Master Key
 ---

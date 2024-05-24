@@ -20,6 +20,11 @@
 	{{ $css := resources.Get "css/styles.scss" | toCSS | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
+	<!-- Math -->
+	{{ if .Param "math" }}
+    {{ partialCached "math.html" . }}
+  {{ end }}
+
 	<title>
 		{{- if .Page.IsHome -}}
 			{{ .Site.Title }}

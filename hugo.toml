@@ -8,12 +8,19 @@ enableGitInfo = true
 	authorName = "Mohammed Saed"
 	description = "Mohammed Saed's blog about computers, programming, travel and life."
 	googleAnalytics = "G-3JLZPCJ09W"
+  math = false
 
 [markup]
 	[markup.goldmark]
 		[markup.goldmark.parser]
 			[markup.goldmark.parser.attribute]
 				block = true
+	[markup.goldmark.extensions]
+      [markup.goldmark.extensions.passthrough]
+        enable = true
+        [markup.goldmark.extensions.passthrough.delimiters]
+          block = [['\[', '\]'], ['$$', '$$']]
+          inline = [['\(', '\)']]
   [markup.tableOfContents]
     ordered = false
     startLevel = 2
