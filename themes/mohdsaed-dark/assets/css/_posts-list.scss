@@ -3,9 +3,6 @@ main.posts-list {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	margin: 0 auto;
-	width: 70%;
-	height: 100%;
 	background-color: $dark-grey;
 
 	h1.title {
@@ -24,6 +21,7 @@ main.posts-list {
 	section.content {
 		font-size: 1.1rem;
 		margin-top: 15px;
+		width: 100%;
 
 		.posts {
 			.post-card {
@@ -117,10 +115,6 @@ main.posts-list {
 }
 
 @media only screen and (max-width: 760px) {
-	main.posts-list {
-		width: 80%;
-	}
-
 	a.image {
 		display: none !important;
 	}

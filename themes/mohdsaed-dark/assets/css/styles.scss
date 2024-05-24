@@ -24,10 +24,17 @@ body {
 
 .container {
 	flex: 1;
-	padding: 20px;
 	background-color: $dark-grey;
+	width: 70%;
+	margin: 0 auto;
 }
 
+@media only screen and (max-width: 750px) {
+	.container {
+		width: 90%;
+		padding: 0;
+	}
+}
 @import 'navbar';
 @import 'footer';
 @import 'home';

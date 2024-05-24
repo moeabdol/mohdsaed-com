@@ -2,8 +2,6 @@
 	display: flex;
 	margin: 0 auto;
 	margin-top: 25px;
-	width: 70%;
-	height: 100%;
 	background-color: $dark-grey;
 
 	.hero-image {
@@ -59,6 +57,5 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		align-items: flex-start;
-		width: 80%;
 	}
 }

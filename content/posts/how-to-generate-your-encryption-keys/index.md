@@ -1,16 +1,15 @@
 ---
-title: How to Generate ED25519 GnuPG Keys
-<!-- subtitle: How to Generate ED25519 GnuPG Keys -->
+title: How to Generate Your Encryption Keys
+<!-- subtitle: How to Generate Your Encryption Keys -->
 date: 2022-05-21T11:39:33+03:00
 draft: false
-description: This is the description of the How to Generate Ed25519 GnuPG Keys post
-summary: How to Generate ED25519 GnuPG Keys
+description: This is the description of the How to Generate Your Encryption Keys post
+summary: How to Generate Your Encryption Keys
 cover: "images/cover.jpg"
-cover_alt: How to Generate ED25519 GnuPG Keys
+cover_alt: How to Generate Your Encryption Keys
 cover_caption: GNU Privacy Guard Logo
 cover_credit:
 categories:
-- Linux
 - Security
 tags:
 - Encryption
@@ -18,12 +17,12 @@ tags:
 - Tutorial
 ---
 
+## Introduction
+---
 > "Arguing that you don't care about the right to privacy because you have
 > nothing to hide is no different from saying you don't care about free speech
 > because you have nothing to say." – Edward Snowden
 
-## Introduction
----
 Almost everyday we hear about data breaches, enterprise and government hacks,
 NSA backdoors in major proprietary operating systems, malware, spyware and
 ransomware. Its also common nowadays to know someone that had his email hijacked
