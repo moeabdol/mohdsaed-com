@@ -20,6 +20,11 @@
 	{{ $css := resources.Get "css/styles.scss" | toCSS | minify | fingerprint }}
 	<link rel="stylesheet" href="{{ $css.RelPermalink }}">
 
+
+	<!-- Javascript -->
+	{{ $js := resources.Get "js/main.js" | js.Build "minify" | fingerprint }}
+	<script src="{{ $js.RelPermalink }}"></script>
+
 	<!-- Math -->
 	{{ if .Param "math" }}
     {{ partialCached "math.html" . }}
