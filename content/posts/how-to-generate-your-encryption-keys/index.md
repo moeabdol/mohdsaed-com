@@ -1,6 +1,6 @@
 ---
 title: How to Generate Your Encryption Keys
-<!-- subtitle: How to Generate Your Encryption Keys -->
+subtitle: Learn How to Generate and Manage Your Encryption Keys
 date: 2022-05-21T11:39:33+03:00
 draft: false
 description: This is the description of the How to Generate Your Encryption Keys post
@@ -117,12 +117,85 @@ The ED25519 algorithm is based on the elliptic curve defined over the prime
 field \(2^{255}-19\). The private key is 256-bit integer, while the public key
 is a 32-byte sequence.
 
-## Generate a Master Key
+## Generate a Master Key (Certify)
 ---
-Run the `gpg` command with the following arguments. Choose option 11 to create
-an ED25519 key to set your own capabilities for each key.
+Run the `gpg` command with the following arguments. Choose option 11 to
+create an ED25519 key to set your own capabilities for each key.
 
 ```bash
 $ gpg --full-gen-key --expert
 ```
 ![image1](images/2022-05-21_01-25.png)
+
+Toggle off the sign `S` and authenticate `A` capability to make sure the master
+key is certify only.
+
+![image2](images/2022-05-21_01-32.png)
+
+Choose `Q` to finalize the capabilities then choose `1` for Curve 25519 and set
+the expiration of you master key. Enter your real name and password to set the
+`uid` user identity to this key.
+
+![image3](images/2022-05-21_01-37.png)
+
+Choose `O` for Okay then type in a strong password to protect the key, and
+voila your master key is created.
+
+![image4](images/2022-05-21_01-39.png)
+
+**Note**: Your master key has been created and using it now, you can create and
+certify subkeys. Contrary to older versions, gpg now automatically creates a
+revokation certificate for your keys.
+
+## Generate Subkeys (Sign, Authenticate, and Encryption)
+---
+Run the following command to list your public keys. Copy your key id to be used
+in the next step.
+
+```bash
+$ gpg -k
+```
+![image5](images/2022-05-21_02-43.png)
+
+Run the following to edit you master key and add subkeys. Type addkey to add a
+new subkey. Choose 11 to create an ED25519 subkey.
+
+```bash
+$ gpg --expert --edit-key YOUR-MASTER-KEY-ID
+```
+![image6](images/2022-05-21_02-45.png)
+
+Make sure the Sign capability is on to create a sign subkey only. Choose 1 for
+ED25519 subkey and define the expiration.
+
+![image7](images/2022-05-21_02-49.png)
+
+Note how the newly generated subkey is sign only.
+
+![image8](images/2022-05-21_02-55.png)
+
+Continue by creating another subkey with authenticate only capability.
+
+![image9](images/2022-05-21_03-01.png)
+
+Again choose 1 for Curve 25519. Define an expiration period and note how your
+new subkey is authenticate only.
+
+![image10](images/2022-05-21_03-07.png)
+
+For the last subkey type `addkey` and this time choose 12 to create an
+encryption only Curve 25519 subkey.
+
+![image11](images/2022-05-21_03-23.png)
+
+Define an expiration period and agree to the remaining questions.
+
+![image12](images/2022-05-21_03-27.png)
+
+Finaly, type in `save` to save all your newly generated subkeys. Now list all
+your keys.
+
+```bash
+$ gpg -k
+```
+![image13](images/2022-05-21_03-30.png)
