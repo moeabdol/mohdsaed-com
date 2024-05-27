@@ -161,7 +161,7 @@ Run the following to edit you master key and add subkeys. Type addkey to add a
 new subkey. Choose 11 to create an ED25519 subkey.
 
 ```bash
-$ gpg --expert --edit-key YOUR-MASTER-KEY-ID
+$ gpg --expert --edit-key <YOUR-MASTER-KEY-ID>
 ```
 ![image6](images/2022-05-21_02-45.png)
 
@@ -199,3 +199,91 @@ your keys.
 $ gpg -k
 ```
 ![image13](images/2022-05-21_03-30.png)
+
+## Export Your Public Key
+---
+Export your public key to a file that you can share with others or use with
+Github, Gitlab, or other sites.
+
+```bash
+$ gpg --export --armor  --output .gnupg/public_key.gpg <YOUR-MASTER-KEY-ID>
+```
+\
+&nbsp;
+## Export Your Public Key to a Keyserver
+---
+In order to share your public key with others you can also publish your public
+key to a well-known keyserver. Create a gpg.conf file in your .gnupg and add a
+keyserver for example.
+
+```text
+hkbs://keys.openpgp.org
+```
+
+Send your public key to the keyserver.
+
+```bash
+$ gpg --send-keys <YOUR-MASTER-KEY-ID>
+```
+
+Lastly, the keyserver will send a verification email to the email associated
+with the key. Verify your identity and now you can share your public key with
+others.
+
+## Backup Your Keys
+---
+Once you generate all your keys, go ahead and backup `.gnupg` directory to a
+secure USB drive. When that is done you should delete your Master Key's private
+key and also the revokation certificate from your local copy of `.gnupg` in your
+home directory. This is to ensure that no one can find your private key or use
+your revokation certificate to revoke your key.
+
+Run the following to list your private keys along with their keygrips.
+
+```bash
+$ gpg -K --with-keygrip
+```
+
+![image14](images/2022-05-21_05-07.png)
+
+Delete the private key associated with you Master's keygrip from `.gnupg`
+directory in your home folder.
+
+```bash
+$ ls -al .gnupg/private-keys-v1.d/
+```
+
+![image15](images/2022-05-21_05-50.png)
+
+```bash
+$ rm -f .gnupg/private-keys-v1.d/<Master-Key-Keygrip>.key
+```
+
+Also delete the revokation certificate.
+
+```bash
+$ ls -al .gnupg/openpgp-revocs.d/
+```
+
+![image16](images/2022-05-21_05-54.png)
+
+```bash
+$ rm -f .gnupg/openpgp-revocs.d/<Master-Key-Keygrip>.rev
+```
+
+Note that when you delete your private key a `sec#` will appear next to your
+private key to indicate that the private key doesn't exist in your `.gnupg`
+directory.
+
+```bash
+$ gpg -K
+```
+
+![image17](images/2022-05-21_06-28.png)
+
+Finally, it is advised to change your passphrase to a shorter one for everyday
+use. This is to ensure that the original passphrase is never compromised.
+
+```bash
+$ gpg --edit-key <YOUR-MASTER-KEY-ID> passwd
+```
