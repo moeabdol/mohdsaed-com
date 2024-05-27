@@ -1,10 +1,10 @@
 ---
 title: How to Generate Your Encryption Keys
-subtitle: Learn How to Generate and Manage Your Encryption Keys
+subtitle: Learn How to Generate and Manage Your Own Encryption Keys
 date: 2022-05-21T11:39:33+03:00
 draft: false
 description: This is the description of the How to Generate Your Encryption Keys post
-summary: How to Generate Your Encryption Keys
+summary: Creating and maintaining your own encryption keys is a must-know skill for anyone who's serious about their security and privacy. If you have sensitive files on your harddrive, or surf the Internet on a daily basis then its a no brainer. You don't have to know the intricate math details of how RSA or Elliptical Curve algorithms work, but at least you should be familiar with how good and effective they are against potential attackers.
 cover: "images/cover.jpg"
 cover_alt: How to Generate Your Encryption Keys
 cover_caption: GNU Privacy Guard Logo
@@ -39,7 +39,7 @@ anyone who's serious about their security and privacy. If you have sensitive
 files on your harddrive, or surf the Internet on a daily basis then its a no
 brainer. You don't have to know the intricate math details of how RSA or
 Elliptical Curve algorithms work, but at least you should be familiar with how
-good and effective the are against potential attackers.
+good and effective they are against potential attackers.
 
 ## GNU Privacy Guard
 ---
