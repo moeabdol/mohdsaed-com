@@ -208,8 +208,31 @@ Github, Gitlab, or other sites.
 ```bash
 $ gpg --export --armor  --output .gnupg/public_key.gpg <YOUR-MASTER-KEY-ID>
 ```
-\
-&nbsp;
+
+Now you can share your public key file with your friends, and they'll be able to
+verify your signature against communications and files sent by you.
+
+## Export Your SSH Key
+---
+If you want to authenticate against Github and other services, you have to share
+your Authenticate public SSH key. First list your keys and identify your
+`Authenticate` key key id.
+
+```bash
+$ gpg -k
+```
+
+![image18](images/2024-05-28_08-06.png)
+
+Run the following command to export your SSH key to screen.
+
+```bash
+$ gpg --export-ssh-key <AUTHENTICATE-KEY-ID>
+```
+
+Now you can copy your public SSH key and share it with Github and other SSH
+services.
+
 ## Export Your Public Key to a Keyserver
 ---
 In order to share your public key with others you can also publish your public
